@@ -1,0 +1,586 @@
+@font-face
+{
+	font-family: 'Retropix';
+	src: url("retropix.otf") format('opentype');
+	font-weight:normal;
+	font-style: normal;
+	font-display:swap;
+}
+
+
+body
+{
+	background-color: #3d3435;
+	
+}
+
+p
+{
+	font-family: Helvetica;
+	font-size:20px;
+	font-weight: 400;
+	color: #3d3435;
+	margin: 0;
+	padding: 0;
+}
+
+h1
+{
+	font-family:Georgia;
+	color: #3d3435;
+	font-weight: 700;
+	font-size:32px;
+}
+
+h2
+{
+	font-family:Georgia;
+	color: #3d3435;
+	font-weight: 700;
+}
+
+h3
+{
+	font-family:Helvetica;
+	color: #3d3435;
+	font-weight: 700;
+}
+ul 
+{
+	font-size: 20px;
+}
+
+a
+{
+	color: #DAA520;
+	text-decoration: none; /*removes underline*/
+}
+
+.navigation
+{
+	display: flex;
+	justify-content:space-between; /*makes space in between to make logo on left and button on right*/
+	align-items: center; /*centers vertically*/
+	background-color: #fd4062;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: #DAA520;
+	padding: 0px 0;
+	overflow: hidden;
+}
+
+
+.navigation a 
+{
+	color: #E5CBF2;
+	text-decoration: none; /*removes underline*/
+	text-align: center; /*center between margin*/
+	padding: 11px 3.5vw; /*spacign of buttons*/
+	font-size: 25px;
+}
+
+.navigation a:hover
+{
+	background-color: #BC3154;
+	color: #DAA520;
+	transition: 0.7s ease; /*animations muwahahhah*/
+}
+
+.navigation .logo
+{
+	background-color: #6ACFF0;
+	float:left;
+	width:200px;
+	height:50px;
+}
+
+.borgar
+{
+	display: none;
+	height: fit-content;
+	transition: 0.2s;
+	padding: 3px 8px;
+}
+
+.borgar div
+{
+	width: 30px;
+	height:2px;
+	margin: 6px 0;
+	background: white;
+}
+
+.welcome
+{
+	display:flex;
+	align-items: center; /*vertical*/
+	justify-content:center; /*horizontal*/
+	background-image: url("backgroundC.png") ;
+	margin-top: 20px;
+	padding: 0px 0;
+	height: 70vw;
+	
+	background-size: cover; /**/
+	background-position:center;
+	background-repeat: no-repeat;
+}
+ 
+.welcome .dp /*profile pic*/
+{
+	display: flex;
+	height:auto;
+}
+
+.portal
+{
+
+	position: absolute;
+	z-index: -1;/*layer*/
+    content: "";
+	transform-origin: center;
+    width: 65vw;
+    height: 65vw;
+    background: url(circle.png) no-repeat center;
+	background-size:contain;
+	background-position:center;
+	background-repeat: no-repeat;
+	
+	animation: rotation 120s linear infinite;	
+}
+
+.verticalLineParent
+{
+	display:flex;
+	align-self:center;
+	justify-content:center;
+}
+.verticalLine
+{
+	margin-top:12vw;
+	background-color:#DAA520;
+	width:5px;
+	height:10vw;
+	
+	animation: scrollLine 1.2s ease-in-out 0s infinite;
+}
+
+footer
+{
+	bottom:0;
+	width:100%;
+	font-family: Helvetica;
+	display: grid;
+	background-color: #FD4062;
+	text-align: center;
+	grid-template-rows: 1fr auto; /* Content takes available space, footer is at the bottom */
+	margin-top: 160px;
+	
+}
+
+.icons
+{
+	height: 40px;
+	width: auto;
+}
+
+
+#sideNav
+{
+	display: flex;
+	flex-direction:  column;
+	align-items:center;
+	justify-content:flex-start; /*list items from top to bot*/
+	padding-top:20px;
+	gap:30px;
+	
+	position: absolute;
+	left: -200px;
+	top: 0;
+	z-index: 999;
+	width:200px;
+	height: 100vh;
+	background: #FD4062;
+	transition: 0.2s;
+	box-shadow: 2px 0 20px 0 #3d3435;
+}
+	
+#sideNav .logo
+{
+	display:block;
+	height: 70px;
+	display:flex;
+	align-items: center;
+}
+
+#sideNav a:hover
+{
+	background-color: #BC3154;
+	color: #DAA520;
+	transition: 0.7s ease; /*animations muwahahhah*/
+}
+
+#intro
+{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+#intro h2
+{
+	color:#E5CBF2;
+	font-family:Retropix;
+}
+
+#name
+{
+	color:#E5CBF2;
+}
+#h1greetings
+{
+	color:#0082C1;
+	margin-top:-6.5vw;
+	font-family:Retropix;
+}
+
+
+#greetings
+{
+	position:relative;
+	top:0px;
+	height:10vw;
+}
+
+#picme2
+{
+	height:40vw;
+	border-style:solid;
+	border-radius:20px;
+	border-color:#DAA520;
+}
+
+
+
+#text
+{
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+}
+
+#indent
+{	
+	width:50%;
+	
+}
+
+#msg
+{
+	color:#E5CBF2;
+	font-weight: 400;
+	text-align: justify;
+	width:40vw;
+}
+
+#demo
+{
+	border-radius:20px;
+	border-color:#DAA520;
+	border-style:solid;
+}
+
+#footTable
+{
+	margin: 0 auto;  /*Centers the table*/
+	width: 15%;
+}
+
+@keyframes rotation  /*rotation animation*/
+{
+
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+@keyframes scrollLine
+{
+	from{transform:translateY(-100%)}
+	to{transform:translateY(100%)}
+}
+
+/*non index------------------------------*/
+.bgRotate:before
+{
+
+	position: fixed;
+	z-index: -1;/*layer*/
+    content: "";
+	transform-origin: center;
+    width: 200%;
+    height: 200%;
+    background: url(circle.png) no-repeat center;
+    animation: rotation 60s linear infinite;	
+}
+
+.circle1:before
+{
+	top: -100%;
+	left: -20%;
+}
+
+.circle2:before
+{
+	top: -10%;
+	right: -20%;
+}
+
+
+/*SKILL--------------------------------------------------------------------------------*/
+
+.welcome_skills
+{
+	/*round edge*/
+	border-radius: 15px;
+	border-color:#DAA520;
+	
+	background: #E5CBF2;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	text-align:center;
+	margin: auto;
+	width:320px;
+	
+	padding: 15px;
+}
+
+.welcome_skills .dp_skills
+{
+	border-radius: 15px;
+	border-color:#DAA520;
+	border-style: solid;
+
+	/*to centralize*/
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+	width: 240px;
+	height: auto;
+}
+
+.label
+{
+	color:#6ACFF0;
+	margin-left: 50px;
+}
+
+.level_container
+{
+	margin-left: 50px;
+	width: 90%;
+	background-color: #6ACFF0;
+}
+
+.level
+{
+	text-align: right;
+	padding-top: 10px;
+	padding-bottom:10px;
+	margin-right: 10px;
+	color: #E5CBF2;
+}
+
+.gaming{width:70%; background-color: #0082C1;}
+.java{width:30%; background-color: #0082C1;}
+.csharp{width:35%; background-color: #0082C1;}
+.c{width:10%; background-color: #0082C1;}
+.unity{width:20%; background-color: #0082C1;}
+
+
+/*education--------------------------------------------------------------------------------*/
+
+.attainment
+{
+	height: 200px;
+	width: 300px;
+}
+.works
+{
+	height: 12vw;
+	width: 20vw;
+}
+#education
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content:center;
+}
+/*media query-------------------------------------------------------------------------------*/
+
+
+/*mobile-------------------------------------------------------------------------------*/
+
+@media (max-width:480px)
+{
+	#mainNav /*hides the list to show the one below*/
+	{
+		display:none;
+	}
+	
+	.borgar /*shows borgar*/
+	{
+		margin-top:-5px;
+		display:block;
+	}		
+	
+	#sideNav:target /*if borgar is press sideNav will show*/
+	{
+		left: 0px;
+	}
+	
+	#greetings
+	{
+		height:30vw;
+	}
+	#h1greetings
+	{
+		color:#0082C1;
+		margin-top:-20vw;
+		font-family:Retropix;
+	}
+	#picme2
+	{
+		height:65vw;
+		border-style:solid;
+		border-radius:20px;
+		border-color:#DAA520;
+	}
+	
+	#msg
+	{
+		width:60vw;
+	}
+	
+	#demo
+	{
+		width:70vw;
+	}
+	
+
+	/*skilss------------------------------*/
+	
+	.skill_level
+	{
+		display:flex;
+		flex-direction:column;
+		align-items: center;
+	}
+	
+	.level_container
+	{
+		margin-left: 0;
+		width: 70%;
+		background-color: #6ACFF0;
+	}
+	.label
+	{
+		margin-left: 0;
+	}
+	
+	/*education---------------------------------*/
+	#education
+	{
+		display:flex;
+		flex-direction:column;
+		align-items: center;
+	}
+	.attainment
+	{
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		justify-content: center;
+		height: 50vw;
+		width: 75vw;
+	}
+	.works
+	{
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		justify-content: center;
+		height: 30vw;
+		width: auto;
+	}
+	
+}
+
+/* Media query for screens smaller than 768px (tablets and below) */
+@media (max-width:923px) and (min-width:481px)
+{
+	#mainNav /*hides the list to show the one below*/
+	{
+		display:none;
+	}
+	
+	.borgar /*shows borgar*/
+	{
+		margin-top:-5px;
+		display:block;
+	}		
+	
+	#sideNav:target /*if borgar is press sideNav will show*/
+	{
+		left: 0px;
+	}
+	#greetings
+	{
+		height:15vw;
+	}
+	#h1greetings
+	{
+		color:#0082C1;
+		margin-top:-10vw;
+		font-family:Retropix;
+	}
+	#picme2
+	{
+		height:65vw;
+		border-style:solid;
+		border-radius:20px;
+		border-color:#DAA520;
+	}
+	
+	#msg
+	{
+		width:60vw;
+	}
+	
+	#demo
+	{
+		width:70vw;
+	}
+	
+	.attainment
+	{
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		justify-content: center;
+		height: 40vw;
+		width: 55vw;
+	}
+	.works
+	{
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		justify-content: center;
+		height: 30vw;
+		width: auto;
+	}
+}
