@@ -10,8 +10,9 @@
 
 body
 {
-	background-color: #3d3435;
-	
+	background: #3F3D3D;
+	background: linear-gradient(90deg,rgba(63, 61, 61, 1) 10%, rgba(110, 109, 109, 1) 50%, rgba(63, 61, 61, 1) 90%);
+	align-items: center;
 }
 
 p
@@ -63,7 +64,6 @@ a
 	align-items: center; /*centers vertically*/
 	background-color: #fd4062;
 	border-style: solid;
-	border-radius: 15px;
 	border-color: #DAA520;
 	padding: 0px 0;
 	overflow: hidden;
@@ -118,7 +118,8 @@ a
 	background-image: url("backgroundC.png") ;
 	margin-top: 20px;
 	padding: 0px 0;
-	height: 70vw;
+	height: 800px;
+	width: 1200px;
 	
 	background-size: cover; /**/
 	background-position:center;
@@ -138,8 +139,8 @@ a
 	z-index: -1;/*layer*/
     content: "";
 	transform-origin: center;
-    width: 65vw;
-    height: 65vw;
+    width: 770px;
+    height: 755px;
     background: url(circle.png) no-repeat center;
 	background-size:contain;
 	background-position:center;
@@ -229,13 +230,13 @@ footer
 
 #intro h2
 {
-	color:#E5CBF2;
+	color:hwb(0 100% 0%);
 	font-family:Retropix;
 }
 
 #name
 {
-	color:#E5CBF2;
+	color:#ffffff;
 }
 #h1greetings
 {
@@ -278,7 +279,7 @@ footer
 
 #msg
 {
-	color:#E5CBF2;
+	color:hsl(0, 0%, 100%);
 	font-weight: 400;
 	text-align: justify;
 	width:40vw;
