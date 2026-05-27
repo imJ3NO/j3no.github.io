@@ -7,28 +7,44 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
+		<div id="loader">
+			<div class="compass-wrap">
+				<svg class="ring-svg ring-outer" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" id="outerRing"></svg>
+				<svg class="ring-svg ring-inner" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" id="innerRing"></svg>
+				<div class="logo-center">
+					<div class="logo-row">
+						<span class="brace">{</span>
+						<span class="logo-text">cyvir</span>
+						<span class="brace">}</span>
+					</div>
+				</div>
+			</div>
+			<div id="please-wait">PLEASE WAIT<span id="dots">...</span></div>
+		</div>
+
+		<div id="page">
 		<center>
 		<nav class="navigation"><!--navigation header bar-->
 			<img src="assets\Logo.png"class="logo" alt="Logo">
 			<a href="#sideNav" class="borgar">☰</a>
 			<div id="mainNav">
-				<a href="index.html">Home</a>  <!--buttons-->	
-				<a href="skills.html">Skills</a>
-				<a href="education.html">Certificates</a>
-				<a href="project.html">Works</a>
+				<a href="#home">Home</a>  <!--buttons-->	
+				<a href="#skills">Skills</a>
+				<a href="#certificates">Certificates</a>
+				<a href="#works">Works</a>
 			</div>
 		</nav>
 		
 		<nav id="sideNav"><!--navigation header bar-->
 				<a href="#" class="close-btn"><h2>✖ Close</h2></a>
-				<a href="index.html">Home</a>  
-				<a href="skills.html">Skills</a>
-				<a href="education.html">Certificates</a>
-				<a href="project.html">Works</a>
+				<a href="#home">Home</a>  
+				<a href="#skills">Skills</a>
+				<a href="#certificates">Certificates</a>
+				<a href="#works">Works</a>
 		</nav>
 				
 		<!--Body-->
-		<div class="welcome">
+		<div class="welcome" id="home">
 			<div class="portal " ></div><!--magic circles-->
 			<img src="assets\Logo.png" id="indent" alt="LogoOutline">
 		</div>
@@ -53,6 +69,91 @@
 			</video>
 		
 		</div>
+
+		<section class="page-section" id="skills">
+			<div class="welcome_skills">
+				<h1>My Skills are:</h1>
+			</div>
+			
+			<br>
+			<div class="skill_level">
+				<h2 class="label">Gaming</h2>
+				<div class="level_container">
+					<div class="level gaming">70%</div>
+				</div>
+				
+				<h2 class="label">Java</h2>
+				<div class="level_container">
+					<div class="level java">30%</div>
+				</div>
+				
+				<h2 class="label">C#</h2>
+				<div class="level_container">
+					<div class="level csharp">35%</div>
+				</div>
+				
+				<h2 class="label">C</h2>
+				<div class="level_container">
+					<div class="level c">10%</div>
+				</div>
+				
+				<h2 class="label">Unity</h2>
+				<div class="level_container">
+					<div class="level unity">20%</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="page-section" id="certificates">
+			<div class="welcome_skills">
+				<h1>My Certificates Are:</h1>
+			</div>
+			<br>
+			<div id="education">
+				<div>
+					<a href="assets\certificate_(1).jpg"><img class="attainment" src="assets\certificate_(1).jpg" alt="cert1"></a>
+					<a href="assets\certificate_(7).jpg"><img class="attainment" src="assets\certificate_(7).jpg" alt="cert7"></a>
+					<a href="assets\certificate_(8).jpg"><img class="attainment" src="assets\certificate_(8).jpg" alt="cert8"></a>
+				</div>
+				<div>
+					<a href="assets\certificate_(2).jpg"><img class="attainment" src="assets\certificate_(2).jpg" alt="cert2"></a>
+					<a href="assets\certificate_(3).jpg"><img class="attainment" src="assets\certificate_(3).jpg" alt="cert3"></a>
+					<a href="assets\certificate_(5).jpg"><img class="attainment" src="assets\certificate_(5).jpg" alt="cert5"></a>
+				</div>
+				<div>
+					<a href="assets\certificate_(6).jpg"><img class="attainment" src="assets\certificate_(6).jpg" alt="cert6"></a>
+					<a href="assets\certificate_(10).jpg"><img class="attainment" src="assets\certificate_(10).jpg" alt="cert10"></a>
+					<a href="assets\certificate_(11).jpg"><img class="attainment" src="assets\certificate_(11).jpg" alt="cert11"></a>
+				</div>
+				<div>
+					<a href="assets\shs_diploma.jpg"><img class="attainment" src="assets\shs_diploma.jpg" alt="SHS Diploma"></a>
+					<a href="assets\jhsDiploma.jpg"><img class="attainment" src="assets\jhsDiploma.jpg" alt="JHS Diploma"></a>
+					<a href="assets\elemDiploma.jpg"><img class="attainment" src="assets\elemDiploma.jpg" alt="Elem Diploma"></a>
+				</div>
+				<div>
+					<a href="assets\certificate_(9).jpg"><img class="attainment" src="assets\certificate_(9).jpg" alt="cert9"></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="page-section" id="works">
+			<div class="welcome_skills">
+				<h1>My Works are:</h1>
+			</div>
+			<br>
+			<div class="works-gallery">
+				<div>
+					<video class="works" controls>
+						<source src="vid1.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div>
+					<a href="assets\Mathemon1.png"><img class="works" src="assets\Mathemon1.png" alt="Mathemon1"></a>
+					<a href="assets\Mathemon2.png"><img class="works" src="assets\Mathemon2.png" alt="Mathemon2"></a>
+					<a href="assets\Mathemon3.png"><img class="works" src="assets\Mathemon3.png" alt="Mathemon3"></a>
+				</div>
+			</div>
+		</section>
 		
 		
 		
@@ -77,5 +178,87 @@
 			<p style="color:#DAA520"> &copy; 2025 / Jephthy Dojino</p>
 		</footer>
 	</center>
+	</div>
+	<script>
+	function makeSVGEl(tag, attrs) {
+		const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+		for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
+		return el;
+	}
+
+	function buildOuterRing(svg) {
+		const cx = 180, cy = 180, r = 158;
+		svg.appendChild(makeSVGEl('circle', { cx, cy, r, fill: 'none', stroke: '#DAA520', 'stroke-width': '1.4', opacity: '0.65' }));
+		const count = 60;
+		for (let i = 0; i < count; i++) {
+			const angle = (i / count) * 2 * Math.PI;
+			const x = cx + r * Math.sin(angle);
+			const y = cy - r * Math.cos(angle);
+			if (i % 5 === 0) {
+				const s = 5.5;
+				const pts = [
+					[x, y - s * 1.7],
+					[x + s * 0.45, y - s * 0.45],
+					[x + s * 1.7, y],
+					[x + s * 0.45, y + s * 0.45],
+					[x, y + s * 1.7],
+					[x - s * 0.45, y + s * 0.45],
+					[x - s * 1.7, y],
+					[x - s * 0.45, y - s * 0.45],
+				].map(point => point.join(',')).join(' ');
+				svg.appendChild(makeSVGEl('polygon', { points: pts, fill: '#DAA520', opacity: '0.9' }));
+			} else if (i % 2 === 0) {
+				const ir = r - 9;
+				const x2 = cx + ir * Math.sin(angle);
+				const y2 = cy - ir * Math.cos(angle);
+				svg.appendChild(makeSVGEl('line', { x1: x, y1: y, x2, y2, stroke: '#DAA520', 'stroke-width': '0.9', opacity: '0.45' }));
+			}
+		}
+	}
+
+	function buildInnerRing(svg) {
+		const cx = 180, cy = 180, r = 125;
+		svg.appendChild(makeSVGEl('circle', { cx, cy, r, fill: 'none', stroke: '#DAA520', 'stroke-width': '0.7', opacity: '0.3' }));
+		for (let i = 0; i < 16; i++) {
+			const angle = (i / 16) * 2 * Math.PI;
+			const x = cx + r * Math.sin(angle);
+			const y = cy - r * Math.cos(angle);
+			if (i % 4 === 0) {
+				const s = 6;
+				const pts = [[x, y - s], [x + s * 0.5, y], [x, y + s], [x - s * 0.5, y]].map(point => point.join(',')).join(' ');
+				svg.appendChild(makeSVGEl('polygon', { points: pts, fill: 'none', stroke: '#DAA520', 'stroke-width': '1.1', opacity: '0.7' }));
+			} else {
+				svg.appendChild(makeSVGEl('circle', { cx: x, cy: y, r: '1.5', fill: '#DAA520', opacity: '0.4' }));
+			}
+		}
+	}
+
+	buildOuterRing(document.getElementById('outerRing'));
+	buildInnerRing(document.getElementById('innerRing'));
+
+	let dotCount = 0;
+	const dotsEl = document.getElementById('dots');
+	const dotInterval = setInterval(() => {
+		dotCount = (dotCount + 1) % 4;
+		dotsEl.textContent = '.'.repeat(dotCount);
+	}, 400);
+
+	window.addEventListener('load', () => {
+		setTimeout(() => {
+			clearInterval(dotInterval);
+			document.getElementById('please-wait').classList.add('hide');
+
+			setTimeout(() => {
+				document.getElementById('loader').classList.add('slide-up');
+				document.getElementById('page').classList.add('visible');
+
+				const links = document.querySelectorAll('#mainNav a');
+				links.forEach((link, index) => {
+					setTimeout(() => link.classList.add('revealed'), 300 + index * 130);
+				});
+			}, 500);
+		}, 600);
+	});
+	</script>
 	</body>
 </html>
