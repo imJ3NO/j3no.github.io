@@ -101,30 +101,20 @@
 
 	<!-- ── SKILLS ── -->
 	<section class="page-section animate-on-scroll" id="skills">
-		<div class="section-header">
-			<h1>My Skills</h1>
-		</div>
 		<div class="skill-list">
-			<div class="skill-item">
-				<span class="skill-label">Gaming</span>
-				<div class="skill-track"><div class="skill-bar gaming"><span>70%</span></div></div>
-			</div>
-			<div class="skill-item">
-				<span class="skill-label">Java</span>
-				<div class="skill-track"><div class="skill-bar java"><span>30%</span></div></div>
-			</div>
-			<div class="skill-item">
-				<span class="skill-label">C#</span>
-				<div class="skill-track"><div class="skill-bar csharp"><span>35%</span></div></div>
-			</div>
-			<div class="skill-item">
-				<span class="skill-label">C</span>
-				<div class="skill-track"><div class="skill-bar clang"><span>10%</span></div></div>
-			</div>
-			<div class="skill-item">
-				<span class="skill-label">Unity</span>
-				<div class="skill-track"><div class="skill-bar unity"><span>20%</span></div></div>
-			</div>
+			<div class="speedometer intermediate"      data-skill="Java"></div>
+			<div class="speedometer beginner"      data-skill="C++"></div>
+			<div class="speedometer familiarity"      data-skill="C#"></div>
+			<div class="speedometer beginner"   data-skill="C"></div>
+			<div class="speedometer beginner"      data-skill="Python"></div>
+			<div class="speedometer learning"      data-skill="TypeScript"></div>
+			<div class="speedometer intermediate"      data-skill="HTML"></div>
+			<div class="speedometer intermediate"      data-skill="CSS"></div>
+			<div class="speedometer beginner"      data-skill="PHP"></div>
+			<div class="speedometer beginner"      data-skill="MySQL"></div>
+			<div class="speedometer learning"      data-skill="Laravel"></div>
+			<div class="speedometer beginner"      data-skill="GitHub"></div>
+			<div class="speedometer beginner"      data-skill="Unity"></div>
 		</div>
 	</section>
 
@@ -356,6 +346,134 @@ window.addEventListener('load', () => {
 			});
 		}, 500);
 	}, 600);
+});
+
+// ── SPEEDOMETER ──
+const SPEEDO_LEVELS = {
+    familiarity:  { ratio: 0.10, label: 'Familiarity', color: '#6ACFF0' },
+    learning:     { ratio: 0.30, label: 'Learning',    color: '#0082C1' },
+    beginner:     { ratio: 0.50, label: 'Beginner',    color: '#DAA520' },
+    intermediate: { ratio: 0.75, label: 'Intermediate',color: '#FD4062' },
+    advance:      { ratio: 1.00, label: 'Advance',     color: '#BC3154' },
+};
+
+document.querySelectorAll('.speedometer').forEach(el => {
+    // find which level class is present
+    const levelKey = Object.keys(SPEEDO_LEVELS).find(k => el.classList.contains(k));
+    if (!levelKey) return;
+    const { ratio, label, color } = SPEEDO_LEVELS[levelKey];
+    const skillName = el.dataset.skill || '';
+
+    const W = 160, H = 100;
+    const canvas = document.createElement('canvas');
+    canvas.width = W; canvas.height = H;
+    el.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    // arc params — half circle from 180° to 0° (left to right)
+    const cx = W / 2, cy = H - 10;
+    const R = 70, innerR = 48;
+    const startAngle = Math.PI;       // 180° = left
+    const endAngle   = 0;             // 0°   = right
+    const activeEnd  = Math.PI - (ratio * Math.PI); // sweeps left→right
+
+    // track bg
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, Math.PI, 0, false);
+    ctx.arc(cx, cy, innerR, 0, Math.PI, true);
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.fill();
+
+    // 5 stage tick marks
+    const stages = [0, 0.25, 0.50, 0.75, 1.0];
+    stages.forEach(s => {
+        const a = Math.PI - s * Math.PI;
+        const x1 = cx + (R + 4)  * Math.cos(a);
+        const y1 = cy - (R + 4)  * Math.sin(a);
+        const x2 = cx + (R + 11) * Math.cos(a);
+        const y2 = cy - (R + 11) * Math.sin(a);
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = 'rgba(218,165,32,0.5)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+    });
+
+    // filled arc (animated)
+    let current = 0;
+    const target = ratio;
+    function animate() {
+        current += (target - current) * 0.06;
+        if (Math.abs(current - target) < 0.001) current = target;
+
+        // clear arc area only
+        ctx.clearRect(0, 0, W, H);
+
+        // bg track
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, Math.PI, 0, false);
+        ctx.arc(cx, cy, innerR, 0, Math.PI, true);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(255,255,255,0.06)';
+        ctx.fill();
+
+        // tick marks
+        stages.forEach(s => {
+            const a = Math.PI - s * Math.PI;
+            ctx.beginPath();
+            ctx.moveTo(cx + (R+4)*Math.cos(a),  cy - (R+4)*Math.sin(a));
+            ctx.lineTo(cx + (R+11)*Math.cos(a), cy - (R+11)*Math.sin(a));
+            ctx.strokeStyle = 'rgba(218,165,32,0.5)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+        });
+
+        // active fill
+        const activeA = Math.PI - current * Math.PI;
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, Math.PI, activeA, false);
+        ctx.arc(cx, cy, innerR, activeA, Math.PI, true);
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.globalAlpha = 0.85;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+
+        // needle
+        const nAngle = Math.PI - current * Math.PI;
+        const nx = cx + (innerR - 6) * Math.cos(nAngle);
+        const ny = cy - (innerR - 6) * Math.sin(nAngle);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(nx, ny);
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        // center dot
+        ctx.beginPath();
+        ctx.arc(cx, cy, 5, 0, Math.PI * 2);
+        ctx.fillStyle = '#DAA520';
+        ctx.fill();
+
+        if (current !== target) requestAnimationFrame(animate);
+    }
+    animate();
+
+    // skill name label
+    const skillEl = document.createElement('div');
+    skillEl.className = 'speedo-skill';
+    skillEl.textContent = skillName;
+    el.appendChild(skillEl);
+
+    // level label
+    const labelEl = document.createElement('div');
+    labelEl.className = 'speedo-label';
+    labelEl.textContent = label;
+    el.appendChild(labelEl);
 });
 </script>
 </body>
