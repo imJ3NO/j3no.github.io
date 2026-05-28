@@ -227,17 +227,18 @@ a { color: var(--gold); text-decoration: none; }
 #page > nav.navigation,
 #page > footer { max-width: 100%; }
 #page > #starfield,
-#page > #page-ornaments {
+#page > #page-ornaments,
+#page > #sideNav {
 	max-width: none;
 	margin: 0;
 }
-#page > :not(#starfield):not(#page-ornaments) {
+#page > :not(#starfield):not(#page-ornaments):not(#sideNav) {
 	position: relative;
 	z-index: 1;
 	opacity: 0;
 	transition: opacity 0.7s ease 0.5s;
 }
-#page.visible > :not(#starfield):not(#page-ornaments) {
+#page.visible > :not(#starfield):not(#page-ornaments):not(#sideNav) {
 	opacity: 1;
 }
 
@@ -296,10 +297,14 @@ a { color: var(--gold); text-decoration: none; }
 /* Hamburger */
 .borgar {
 	display: none;
+	border: 0;
+	background: transparent;
+	font-family: inherit;
 	font-size: 22px;
 	color: var(--white);
 	padding: 6px 10px;
 	border-radius: var(--radius);
+	cursor: pointer;
 	transition: background 0.2s;
 }
 
@@ -313,31 +318,63 @@ a { color: var(--gold); text-decoration: none; }
 	padding: 24px 0;
 	gap: 4px;
 	position: fixed;
-	left: -220px;
 	top: 0;
-	z-index: 999;
-	width: 220px;
-	height: 100vh;
+	left: 0;
+	right: auto;
+	bottom: auto;
+	z-index: 1000;
+	width: min(82vw, 240px);
+	height: 100dvh;
+	max-width: none;
+	margin: 0;
+	overflow-y: auto;
 	background: var(--red);
 	border-right: 1px solid var(--gold);
-	transition: left 0.25s ease;
+	transform: translate3d(calc(-100% - 2px), 0, 0);
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition:
+		transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+		opacity 0.2s ease,
+		visibility 0s linear 0.28s;
+	will-change: transform;
 }
 
-#sideNav a {
+#sideNav.is-open {
+	transform: translate3d(0, 0, 0);
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+	transition-delay: 0s;
+}
+
+#sideNav a,
+#sideNav .close-btn {
 	color: var(--lavender);
+	background: transparent;
+	border: 0;
+	font-family: inherit;
 	font-size: 16px;
 	padding: 10px 24px;
 	width: 100%;
+	text-align: left;
+	cursor: pointer;
 	transition: background 0.2s, color 0.2s;
 }
 
 #sideNav a:hover,
-#sideNav a.close-btn:hover {
+#sideNav .close-btn:hover {
 	background: var(--red-dark);
 	color: var(--gold);
 }
 
-#sideNav:target { left: 0; }
+.borgar:focus-visible,
+#sideNav a:focus-visible,
+#sideNav .close-btn:focus-visible {
+	outline: 2px solid var(--gold);
+	outline-offset: 2px;
+}
 
 /* ═══════════════════════════════════════
    HERO
@@ -722,7 +759,6 @@ footer {
 	#mainNav  { display: none; }
 	.borgar   { display: block; }
 	#sideNav  { display: flex; }
-	#sideNav:target { left: 0; }
 
 	.greetings-img  { height: 30vw; }
 	.greeting-title { margin-top: calc(min(10vw, 100px) * -2.3); }
