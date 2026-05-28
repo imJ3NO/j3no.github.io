@@ -30,7 +30,23 @@
      PAGE
 ═══════════════════════════════════════ -->
 <div id="page">
-
+	<canvas id="starfield"></canvas>
+	<svg id="page-ornaments" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<g opacity="0.5" fill="#DAA520">
+			<path d="M20,20 Q35,10 45,25 Q55,10 65,20 Q55,35 45,25 Q35,35 20,20Z"/>
+			<path d="M45,25 Q50,45 40,60 Q55,50 65,55 Q58,40 45,25Z"/>
+			<path d="M45,25 Q25,40 15,55 Q28,48 35,58 Q42,42 45,25Z"/>
+			<ellipse cx="68" cy="22" rx="4" ry="7" transform="rotate(-35 68 22)" opacity="0.7"/>
+			<ellipse cx="15" cy="58" rx="3" ry="6" transform="rotate(20 15 58)" opacity="0.6"/>
+			<circle cx="45" cy="25" r="3"/>
+		</g>
+		<g opacity="0.5" fill="#DAA520" transform="translate(100vw,0) scale(-1,1)">
+			<path d="M20,20 Q35,10 45,25 Q55,10 65,20 Q55,35 45,25 Q35,35 20,20Z"/>
+			<path d="M45,25 Q50,45 40,60 Q55,50 65,55 Q58,40 45,25Z"/>
+			<path d="M45,25 Q25,40 15,55 Q28,48 35,58 Q42,42 45,25Z"/>
+			<circle cx="45" cy="25" r="3"/>
+		</g>
+	</svg>
 	<!-- NAV -->
 	<nav class="navigation">
 		<img src="assets/Logo.png" class="logo" alt="Cyvir Logo">
@@ -163,6 +179,37 @@
 </div><!-- #page -->
 
 <script>
+// ── Star field ──
+const sf = document.getElementById('starfield');
+sf.width  = window.innerWidth;
+sf.height = window.innerHeight;
+const sCtx = sf.getContext('2d');
+const stars = Array.from({ length: 260 }, () => ({
+    x: Math.random() * sf.width,
+    y: Math.random() * sf.height,
+    r: Math.random() * 1.1 + 0.2,
+    o: Math.random() * 0.45 + 0.08,
+    ts: Math.random() * 0.012 + 0.004,
+    to: Math.random() * Math.PI * 2
+}));
+let sf_frame = 0;
+(function drawStars() {
+    sCtx.clearRect(0, 0, sf.width, sf.height);
+    stars.forEach(s => {
+        const op = s.o + Math.sin(sf_frame * s.ts + s.to) * 0.12;
+        sCtx.beginPath();
+        sCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        sCtx.fillStyle = `rgba(255,255,255,${Math.max(0, op)})`;
+        sCtx.fill();
+    });
+    sf_frame++;
+    requestAnimationFrame(drawStars);
+})();
+window.addEventListener('resize', () => {
+    sf.width  = window.innerWidth;
+    sf.height = window.innerHeight;
+});
+
 function makeSVGEl(tag, attrs) {
 	const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
 	for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
