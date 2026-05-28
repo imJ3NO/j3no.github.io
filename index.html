@@ -72,17 +72,17 @@
 	</nav>
 
 	<!-- ── HERO ── -->
-	<section class="welcome" id="home">
+	<section class="welcome animate-on-scroll" id="home">
 		<div class="portal"></div>
 		<img src="assets/Logo.png" class="hero-logo" alt="Cyvir Logo">
 	</section>
 
-	<div class="scroll-indicator">
+	<div class="scroll-indicator animate-on-scroll">
 		<div class="scroll-line"></div>
 	</div>
 
 	<!-- ── INTRO ── -->
-	<section class="section-intro" id="intro">
+	<section class="section-intro animate-on-scroll" id="intro">
 		<img class="greetings-img" src="assets/{}.png" alt="Greetings symbol">
 		<h1 class="greeting-title">Greetings</h1>
 		<p class="greeting-sub">I am</p>
@@ -100,7 +100,7 @@
 	</section>
 
 	<!-- ── SKILLS ── -->
-	<section class="page-section" id="skills">
+	<section class="page-section animate-on-scroll" id="skills">
 		<div class="section-header">
 			<h1>My Skills</h1>
 		</div>
@@ -129,7 +129,7 @@
 	</section>
 
 	<!-- ── CERTIFICATES ── -->
-	<section class="page-section" id="certificates">
+	<section class="page-section animate-on-scroll" id="certificates">
 		<div class="section-header">
 			<h1>Certificates</h1>
 		</div>
@@ -151,7 +151,7 @@
 	</section>
 
 	<!-- ── WORKS ── -->
-	<section class="page-section" id="works">
+	<section class="page-section animate-on-scroll" id="works">
 		<div class="section-header">
 			<h1>My Works</h1>
 		</div>
@@ -221,6 +221,48 @@ resizeStarfield();
 	requestAnimationFrame(drawStars);
 })();
 window.addEventListener('resize', resizeStarfield);
+
+// ── Section reveal on scroll / nav ──
+const pageEl = document.getElementById('page');
+const animatedSections = document.querySelectorAll('.animate-on-scroll');
+
+const revealObserver = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) entry.target.classList.add('is-visible');
+	});
+}, {
+	root: pageEl,
+	threshold: 0.18,
+	rootMargin: '0px 0px -8% 0px'
+});
+
+animatedSections.forEach(section => revealObserver.observe(section));
+
+function replaySectionReveal(section) {
+	if (!section || !section.classList.contains('animate-on-scroll')) return;
+	section.classList.remove('is-visible');
+	void section.offsetWidth;
+
+	const sectionRect = section.getBoundingClientRect();
+	const pageRect = pageEl.getBoundingClientRect();
+	const isInView = sectionRect.top < pageRect.bottom && sectionRect.bottom > pageRect.top;
+	if (isInView) section.classList.add('is-visible');
+}
+
+document.querySelectorAll('#mainNav a[href^="#"], #sideNav a[href^="#"]').forEach(link => {
+	link.addEventListener('click', event => {
+		const href = link.getAttribute('href');
+		if (!href || href === '#') return;
+
+		const target = document.getElementById(href.slice(1));
+		if (!target || target.id === 'sideNav') return;
+
+		event.preventDefault();
+		history.pushState(null, '', href);
+		replaySectionReveal(target);
+		target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	});
+});
 
 function makeSVGEl(tag, attrs) {
 	const el = document.createElementNS('http://www.w3.org/2000/svg', tag);

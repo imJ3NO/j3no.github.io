@@ -229,11 +229,13 @@ a { color: var(--gold); text-decoration: none; }
 #page > :not(#starfield):not(#page-ornaments) {
 	position: relative;
 	z-index: 1;
-	opacity: 0;
-	transition: opacity 0.7s ease 0.5s;
 }
-#page.visible > :not(#starfield):not(#page-ornaments) {
-	opacity: 1;
+#page:not(.visible) > :not(#starfield):not(#page-ornaments) {
+	opacity: 0;
+}
+#page:not(.visible) > .animate-on-scroll {
+	transform: translateY(44px);
+	filter: blur(8px);
 }
 
 /* ═══════════════════════════════════════
@@ -654,6 +656,19 @@ footer {
 	60%  { opacity: 1; }
 	100% { transform: translateY(100%);  opacity: 0; }
 }
+@keyframes reveal {
+	from {
+		opacity: 0;
+		transform: translateY(44px);
+		filter: blur(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0);
+	}
+}
+
 
 /* ═══════════════════════════════════════
    NON-INDEX PAGES (circle bg)
@@ -667,6 +682,23 @@ footer {
 	height: 200%;
 	background: url('circle.png') no-repeat center;
 	animation: spin-cw 60s linear infinite;
+}
+
+.animate-on-scroll {
+	opacity: 0;
+	transform: translateY(44px);
+	filter: blur(8px);
+	transition:
+		opacity 0.85s ease,
+		transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+		filter 0.85s ease;
+	will-change: opacity, transform, filter;
+}
+
+.animate-on-scroll.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0);
 }
 
 .circle1::before { top: -100%; left: -20%; }
