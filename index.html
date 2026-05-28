@@ -53,7 +53,7 @@
 	<!-- NAV -->
 	<nav class="navigation">
 		<img src="assets/Logo.png" class="logo" alt="Cyvir Logo">
-		<a href="#sideNav" class="borgar" aria-label="Open menu">☰</a>
+		<button class="borgar" id="menuToggle" type="button" aria-label="Open menu" aria-controls="sideNav" aria-expanded="false">☰</button>
 		<div id="mainNav">
 			<a href="#home">Home</a>
 			<a href="#skills">Skills</a>
@@ -63,8 +63,8 @@
 	</nav>
 
 	<!-- SIDE NAV (mobile) -->
-	<nav id="sideNav">
-		<a href="#" class="close-btn">✖ Close</a>
+	<nav id="sideNav" aria-label="Mobile navigation">
+		<button class="close-btn" id="menuClose" type="button" aria-label="Close menu">✖ Close</button>
 		<a href="#home">Home</a>
 		<a href="#skills">Skills</a>
 		<a href="#certificates">Certificates</a>
@@ -225,6 +225,9 @@ window.addEventListener('resize', resizeStarfield);
 // ── Section reveal on scroll / nav ──
 const pageEl = document.getElementById('page');
 const animatedSections = document.querySelectorAll('.animate-on-scroll');
+const menuToggle = document.getElementById('menuToggle');
+const menuClose = document.getElementById('menuClose');
+const sideNav = document.getElementById('sideNav');
 
 const revealObserver = new IntersectionObserver((entries) => {
 	entries.forEach(entry => {
@@ -237,6 +240,23 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 animatedSections.forEach(section => revealObserver.observe(section));
+
+function openSidebar() {
+	sideNav.classList.add('is-open');
+	menuToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeSidebar() {
+	sideNav.classList.remove('is-open');
+	menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+menuToggle.addEventListener('click', openSidebar);
+menuClose.addEventListener('click', closeSidebar);
+
+document.addEventListener('keydown', event => {
+	if (event.key === 'Escape') closeSidebar();
+});
 
 function replaySectionReveal(section) {
 	if (!section || !section.classList.contains('animate-on-scroll')) return;
@@ -261,6 +281,7 @@ document.querySelectorAll('#mainNav a[href^="#"], #sideNav a[href^="#"]').forEac
 		history.pushState(null, '', href);
 		replaySectionReveal(target);
 		target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		closeSidebar();
 	});
 });
 
