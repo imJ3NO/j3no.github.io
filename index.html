@@ -31,21 +31,24 @@
 ═══════════════════════════════════════ -->
 <div id="page">
 	<canvas id="starfield"></canvas>
-	<svg id="page-ornaments" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-		<g opacity="0.5" fill="#DAA520">
-			<path d="M20,20 Q35,10 45,25 Q55,10 65,20 Q55,35 45,25 Q35,35 20,20Z"/>
-			<path d="M45,25 Q50,45 40,60 Q55,50 65,55 Q58,40 45,25Z"/>
-			<path d="M45,25 Q25,40 15,55 Q28,48 35,58 Q42,42 45,25Z"/>
-			<ellipse cx="68" cy="22" rx="4" ry="7" transform="rotate(-35 68 22)" opacity="0.7"/>
-			<ellipse cx="15" cy="58" rx="3" ry="6" transform="rotate(20 15 58)" opacity="0.6"/>
-			<circle cx="45" cy="25" r="3"/>
-		</g>
-		<g opacity="0.5" fill="#DAA520" transform="translate(100vw,0) scale(-1,1)">
-			<path d="M20,20 Q35,10 45,25 Q55,10 65,20 Q55,35 45,25 Q35,35 20,20Z"/>
-			<path d="M45,25 Q50,45 40,60 Q55,50 65,55 Q58,40 45,25Z"/>
-			<path d="M45,25 Q25,40 15,55 Q28,48 35,58 Q42,42 45,25Z"/>
-			<circle cx="45" cy="25" r="3"/>
-		</g>
+	<svg id="page-ornaments" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		<defs>
+			<g id="floral-corner" opacity="0.5" fill="#DAA520">
+				<path d="M20,20 Q35,10 45,25 Q55,10 65,20 Q55,35 45,25 Q35,35 20,20Z"/>
+				<path d="M45,25 Q50,45 40,60 Q55,50 65,55 Q58,40 45,25Z"/>
+				<path d="M45,25 Q25,40 15,55 Q28,48 35,58 Q42,42 45,25Z"/>
+				<path d="M45,25 Q42,8 48,0 Q52,10 45,25Z"/>
+				<path d="M45,25 Q72,28 82,42 Q64,43 45,25Z"/>
+				<ellipse cx="68" cy="22" rx="4" ry="7" transform="rotate(-35 68 22)" opacity="0.7"/>
+				<ellipse cx="15" cy="58" rx="3" ry="6" transform="rotate(20 15 58)" opacity="0.6"/>
+				<ellipse cx="78" cy="43" rx="3" ry="6" transform="rotate(-65 78 43)" opacity="0.55"/>
+				<circle cx="45" cy="25" r="3"/>
+			</g>
+		</defs>
+		<use href="#floral-corner" transform="translate(1 1) scale(.22)"/>
+		<use href="#floral-corner" transform="translate(99 1) scale(-.22 .22)"/>
+		<use href="#floral-corner" transform="translate(1 99) scale(.22 -.22)"/>
+		<use href="#floral-corner" transform="translate(99 99) scale(-.22 -.22)"/>
 	</svg>
 	<!-- NAV -->
 	<nav class="navigation">
@@ -181,34 +184,43 @@
 <script>
 // ── Star field ──
 const sf = document.getElementById('starfield');
-sf.width  = window.innerWidth;
-sf.height = window.innerHeight;
 const sCtx = sf.getContext('2d');
-const stars = Array.from({ length: 260 }, () => ({
-    x: Math.random() * sf.width,
-    y: Math.random() * sf.height,
-    r: Math.random() * 1.1 + 0.2,
-    o: Math.random() * 0.45 + 0.08,
-    ts: Math.random() * 0.012 + 0.004,
-    to: Math.random() * Math.PI * 2
-}));
+const starCount = 260;
+let stars = [];
 let sf_frame = 0;
+
+function randomStar() {
+	return {
+		x: Math.random() * sf.width,
+		y: Math.random() * sf.height,
+		r: Math.random() * 1.1 + 0.2,
+		o: Math.random() * 0.45 + 0.08,
+		ts: Math.random() * 0.012 + 0.004,
+		to: Math.random() * Math.PI * 2
+	};
+}
+
+function resizeStarfield() {
+	sf.width = window.innerWidth;
+	sf.height = window.innerHeight;
+	stars = Array.from({ length: starCount }, randomStar);
+}
+
+resizeStarfield();
+
 (function drawStars() {
-    sCtx.clearRect(0, 0, sf.width, sf.height);
-    stars.forEach(s => {
-        const op = s.o + Math.sin(sf_frame * s.ts + s.to) * 0.12;
-        sCtx.beginPath();
-        sCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        sCtx.fillStyle = `rgba(255,255,255,${Math.max(0, op)})`;
-        sCtx.fill();
-    });
-    sf_frame++;
-    requestAnimationFrame(drawStars);
+	sCtx.clearRect(0, 0, sf.width, sf.height);
+	stars.forEach(s => {
+		const op = Math.min(0.53, Math.max(0.08, s.o + Math.sin(sf_frame * s.ts + s.to) * 0.12));
+		sCtx.beginPath();
+		sCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+		sCtx.fillStyle = `rgba(255,255,255,${op})`;
+		sCtx.fill();
+	});
+	sf_frame++;
+	requestAnimationFrame(drawStars);
 })();
-window.addEventListener('resize', () => {
-    sf.width  = window.innerWidth;
-    sf.height = window.innerHeight;
-});
+window.addEventListener('resize', resizeStarfield);
 
 function makeSVGEl(tag, attrs) {
 	const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
