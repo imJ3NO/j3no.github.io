@@ -175,6 +175,8 @@ a { color: var(--gold); text-decoration: none; }
     height: 100%;
     z-index: 0;
     pointer-events: none;
+    max-width: none;
+    margin: 0;
 }
 
 #page-ornaments {
@@ -185,6 +187,8 @@ a { color: var(--gold); text-decoration: none; }
     z-index: 0;
     pointer-events: none;
     overflow: visible;
+    max-width: none;
+    margin: 0;
 }
 
 /* ═══════════════════════════════════════
@@ -197,6 +201,7 @@ a { color: var(--gold); text-decoration: none; }
 	overflow-y: auto;
 	overflow-x: hidden;
 	transition: opacity 0.7s ease 0.5s;
+	isolation: isolate;
 }
 
 #page.visible { opacity: 1; }
@@ -272,7 +277,7 @@ a { color: var(--gold); text-decoration: none; }
 
 /* Side nav (mobile) */
 #sideNav {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 24px 0;
@@ -648,6 +653,7 @@ footer {
 @media (max-width: 923px) and (min-width: 481px) {
 	#mainNav  { display: none; }
 	.borgar   { display: block; }
+	#sideNav  { display: flex; }
 
 	.greetings-img  { height: 15vw; }
 	.greeting-title { margin-top: -10vw; }
@@ -667,6 +673,7 @@ footer {
 
 	#mainNav  { display: none; }
 	.borgar   { display: block; }
+	#sideNav  { display: flex; }
 	#sideNav:target { left: 0; }
 
 	.greetings-img  { height: 30vw; }
