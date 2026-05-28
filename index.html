@@ -1,264 +1,240 @@
 ﻿<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Portfolio</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-		<div id="loader">
-			<div class="compass-wrap">
-				<svg class="ring-svg ring-outer" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" id="outerRing"></svg>
-				<svg class="ring-svg ring-inner" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" id="innerRing"></svg>
-				<div class="logo-center">
-					<div class="logo-row">
-						<span class="brace">{</span>
-						<span class="logo-text">cyvir</span>
-						<span class="brace">}</span>
-					</div>
-				</div>
-			</div>
-			<div id="please-wait">PLEASE WAIT<span id="dots">...</span></div>
-		</div>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jephthy Dojino — Portfolio</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-		<div id="page">
-		<center>
-		<nav class="navigation"><!--navigation header bar-->
-			<img src="assets\Logo.png"class="logo" alt="Logo">
-			<a href="#sideNav" class="borgar">☰</a>
-			<div id="mainNav">
-				<a href="#home">Home</a>  <!--buttons-->	
-				<a href="#skills">Skills</a>
-				<a href="#certificates">Certificates</a>
-				<a href="#works">Works</a>
-			</div>
-		</nav>
-		
-		<nav id="sideNav"><!--navigation header bar-->
-				<a href="#" class="close-btn"><h2>✖ Close</h2></a>
-				<a href="#home">Home</a>  
-				<a href="#skills">Skills</a>
-				<a href="#certificates">Certificates</a>
-				<a href="#works">Works</a>
-		</nav>
-				
-		<!--Body-->
-		<div class="welcome" id="home">
-			<div class="portal " ></div><!--magic circles-->
-			<img src="assets\Logo.png" id="indent" alt="LogoOutline">
-		</div>
-		
-		<div class="verticalLineParent">
-			<div class="verticalLine">
+<!-- ═══════════════════════════════════════
+     LOADER
+═══════════════════════════════════════ -->
+<div id="loader">
+	<div class="compass-wrap">
+		<svg class="ring-svg ring-outer" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" id="outerRing"></svg>
+		<svg class="ring-svg ring-inner" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" id="innerRing"></svg>
+		<div class="logo-center">
+			<div class="logo-row">
+				<span class="brace">{</span>
+				<span class="logo-text">cyvir</span>
+				<span class="brace">}</span>
 			</div>
 		</div>
-		<br><br><br><br><br><br><br><br>
-	
-		<div id="intro">
-			<img id="greetings"src="assets\{}.png" alt="Greetings">
-			<h1 id="h1greetings">Greetings</h1>
-			<h2>I am</h2>
-			<img id="picme2" src="assets\picme2.png" alt="picme2">
-			<h1 id="name">Jephthy Dojino</h1>
-			<p id="msg">A student of Pamantasan ng Lungsod ng Valenzuela, studying for Bachelors of Science in Information technology, an aspiring Game Developer, I got interest in logics, puzzles, and concepts. I do have quite an attitude but I always do my best to improve myself character and is willing to listen to advices.</p>
-			<br><br><br><br><br><br><br><br>
-			
-			<video id="demo" controls>
-				<source src="vid2.mp4" type="video/mp4">
-			</video>
-		
-		</div>
-
-		<section class="page-section" id="skills">
-			<div class="welcome_skills">
-				<h1>My Skills are:</h1>
-			</div>
-			
-			<br>
-			<div class="skill_level">
-				<h2 class="label">Gaming</h2>
-				<div class="level_container">
-					<div class="level gaming">70%</div>
-				</div>
-				
-				<h2 class="label">Java</h2>
-				<div class="level_container">
-					<div class="level java">30%</div>
-				</div>
-				
-				<h2 class="label">C#</h2>
-				<div class="level_container">
-					<div class="level csharp">35%</div>
-				</div>
-				
-				<h2 class="label">C</h2>
-				<div class="level_container">
-					<div class="level c">10%</div>
-				</div>
-				
-				<h2 class="label">Unity</h2>
-				<div class="level_container">
-					<div class="level unity">20%</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="page-section" id="certificates">
-			<div class="welcome_skills">
-				<h1>My Certificates Are:</h1>
-			</div>
-			<br>
-			<div id="education">
-				<div>
-					<a href="assets\certificate_(1).jpg"><img class="attainment" src="assets\certificate_(1).jpg" alt="cert1"></a>
-					<a href="assets\certificate_(7).jpg"><img class="attainment" src="assets\certificate_(7).jpg" alt="cert7"></a>
-					<a href="assets\certificate_(8).jpg"><img class="attainment" src="assets\certificate_(8).jpg" alt="cert8"></a>
-				</div>
-				<div>
-					<a href="assets\certificate_(2).jpg"><img class="attainment" src="assets\certificate_(2).jpg" alt="cert2"></a>
-					<a href="assets\certificate_(3).jpg"><img class="attainment" src="assets\certificate_(3).jpg" alt="cert3"></a>
-					<a href="assets\certificate_(5).jpg"><img class="attainment" src="assets\certificate_(5).jpg" alt="cert5"></a>
-				</div>
-				<div>
-					<a href="assets\certificate_(6).jpg"><img class="attainment" src="assets\certificate_(6).jpg" alt="cert6"></a>
-					<a href="assets\certificate_(10).jpg"><img class="attainment" src="assets\certificate_(10).jpg" alt="cert10"></a>
-					<a href="assets\certificate_(11).jpg"><img class="attainment" src="assets\certificate_(11).jpg" alt="cert11"></a>
-				</div>
-				<div>
-					<a href="assets\shs_diploma.jpg"><img class="attainment" src="assets\shs_diploma.jpg" alt="SHS Diploma"></a>
-					<a href="assets\jhsDiploma.jpg"><img class="attainment" src="assets\jhsDiploma.jpg" alt="JHS Diploma"></a>
-					<a href="assets\elemDiploma.jpg"><img class="attainment" src="assets\elemDiploma.jpg" alt="Elem Diploma"></a>
-				</div>
-				<div>
-					<a href="assets\certificate_(9).jpg"><img class="attainment" src="assets\certificate_(9).jpg" alt="cert9"></a>
-				</div>
-			</div>
-		</section>
-
-		<section class="page-section" id="works">
-			<div class="welcome_skills">
-				<h1>My Works are:</h1>
-			</div>
-			<br>
-			<div class="works-gallery">
-				<div>
-					<video class="works" controls>
-						<source src="vid1.mp4" type="video/mp4">
-					</video>
-				</div>
-				<div>
-					<a href="assets\Mathemon1.png"><img class="works" src="assets\Mathemon1.png" alt="Mathemon1"></a>
-					<a href="assets\Mathemon2.png"><img class="works" src="assets\Mathemon2.png" alt="Mathemon2"></a>
-					<a href="assets\Mathemon3.png"><img class="works" src="assets\Mathemon3.png" alt="Mathemon3"></a>
-				</div>
-			</div>
-		</section>
-		
-		
-		
-		
-		
-		
-		<footer>
-			<h3 style="color:#DAA520">Contact Me</h3>
-			
-			<table id="footTable">
-				<tr> <!--Row-->
-					<th><a href="https://x.com/J3NO2"><img class="icons" src="assets\Twitter.png" alt="Twitter"> </a></th>
-					<th><a href="https://www.facebook.com/jephthy.dojino/"><img class="icons" src="assets\FaceBook.png" alt="FaceBook"> </a></th>
-					<th><a href="https://discord.com/users/316414959791636480"><img class="icons" src="assets\Discord.png" alt="Discord"> </a></th>
-					
-					<th><a href="mailto: jephthydojino@gmail.com"><img class="icons" src="assets\Email.png" alt="Email"> </a></th>
-					
-				</tr>
-			</table>
-			
-			<!--Footer-->
-			<p style="color:#DAA520"> &copy; 2025 / Jephthy Dojino</p>
-		</footer>
-	</center>
 	</div>
-	<script>
-	function makeSVGEl(tag, attrs) {
-		const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
-		for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
-		return el;
-	}
+	<div id="please-wait">PLEASE WAIT<span id="dots">...</span></div>
+</div>
 
-	function buildOuterRing(svg) {
-		const cx = 180, cy = 180, r = 158;
-		svg.appendChild(makeSVGEl('circle', { cx, cy, r, fill: 'none', stroke: '#DAA520', 'stroke-width': '1.4', opacity: '0.65' }));
-		const count = 60;
-		for (let i = 0; i < count; i++) {
-			const angle = (i / count) * 2 * Math.PI;
-			const x = cx + r * Math.sin(angle);
-			const y = cy - r * Math.cos(angle);
-			if (i % 5 === 0) {
-				const s = 5.5;
-				const pts = [
-					[x, y - s * 1.7],
-					[x + s * 0.45, y - s * 0.45],
-					[x + s * 1.7, y],
-					[x + s * 0.45, y + s * 0.45],
-					[x, y + s * 1.7],
-					[x - s * 0.45, y + s * 0.45],
-					[x - s * 1.7, y],
-					[x - s * 0.45, y - s * 0.45],
-				].map(point => point.join(',')).join(' ');
-				svg.appendChild(makeSVGEl('polygon', { points: pts, fill: '#DAA520', opacity: '0.9' }));
-			} else if (i % 2 === 0) {
-				const ir = r - 9;
-				const x2 = cx + ir * Math.sin(angle);
-				const y2 = cy - ir * Math.cos(angle);
-				svg.appendChild(makeSVGEl('line', { x1: x, y1: y, x2, y2, stroke: '#DAA520', 'stroke-width': '0.9', opacity: '0.45' }));
-			}
+<!-- ═══════════════════════════════════════
+     PAGE
+═══════════════════════════════════════ -->
+<div id="page">
+
+	<!-- NAV -->
+	<nav class="navigation">
+		<img src="assets/Logo.png" class="logo" alt="Cyvir Logo">
+		<a href="#sideNav" class="borgar" aria-label="Open menu">☰</a>
+		<div id="mainNav">
+			<a href="#home">Home</a>
+			<a href="#skills">Skills</a>
+			<a href="#certificates">Certificates</a>
+			<a href="#works">Works</a>
+		</div>
+	</nav>
+
+	<!-- SIDE NAV (mobile) -->
+	<nav id="sideNav">
+		<a href="#" class="close-btn">✖ Close</a>
+		<a href="#home">Home</a>
+		<a href="#skills">Skills</a>
+		<a href="#certificates">Certificates</a>
+		<a href="#works">Works</a>
+	</nav>
+
+	<!-- ── HERO ── -->
+	<section class="welcome" id="home">
+		<div class="portal"></div>
+		<img src="assets/Logo.png" class="hero-logo" alt="Cyvir Logo">
+	</section>
+
+	<div class="scroll-indicator">
+		<div class="scroll-line"></div>
+	</div>
+
+	<!-- ── INTRO ── -->
+	<section class="section-intro" id="intro">
+		<img class="greetings-img" src="assets/{}.png" alt="Greetings symbol">
+		<h1 class="greeting-title">Greetings</h1>
+		<p class="greeting-sub">I am</p>
+		<img class="profile-pic" src="assets/picme2.png" alt="Jephthy Dojino">
+		<h1 class="name-title">Jephthy Dojino</h1>
+		<p class="bio">
+			A student of Pamantasan ng Lungsod ng Valenzuela, studying for Bachelors of Science
+			in Information Technology, an aspiring Game Developer. I have an interest in logics,
+			puzzles, and concepts. I always do my best to improve my character and am willing to
+			listen to advice.
+		</p>
+		<video class="demo-video" controls>
+			<source src="vid2.mp4" type="video/mp4">
+		</video>
+	</section>
+
+	<!-- ── SKILLS ── -->
+	<section class="page-section" id="skills">
+		<div class="section-header">
+			<h1>My Skills</h1>
+		</div>
+		<div class="skill-list">
+			<div class="skill-item">
+				<span class="skill-label">Gaming</span>
+				<div class="skill-track"><div class="skill-bar gaming"><span>70%</span></div></div>
+			</div>
+			<div class="skill-item">
+				<span class="skill-label">Java</span>
+				<div class="skill-track"><div class="skill-bar java"><span>30%</span></div></div>
+			</div>
+			<div class="skill-item">
+				<span class="skill-label">C#</span>
+				<div class="skill-track"><div class="skill-bar csharp"><span>35%</span></div></div>
+			</div>
+			<div class="skill-item">
+				<span class="skill-label">C</span>
+				<div class="skill-track"><div class="skill-bar clang"><span>10%</span></div></div>
+			</div>
+			<div class="skill-item">
+				<span class="skill-label">Unity</span>
+				<div class="skill-track"><div class="skill-bar unity"><span>20%</span></div></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ── CERTIFICATES ── -->
+	<section class="page-section" id="certificates">
+		<div class="section-header">
+			<h1>Certificates</h1>
+		</div>
+		<div class="cert-grid">
+			<a href="assets/certificate_(1).jpg"  class="cert-item"><img src="assets/certificate_(1).jpg"  alt="Certificate 1"></a>
+			<a href="assets/certificate_(7).jpg"  class="cert-item"><img src="assets/certificate_(7).jpg"  alt="Certificate 7"></a>
+			<a href="assets/certificate_(8).jpg"  class="cert-item"><img src="assets/certificate_(8).jpg"  alt="Certificate 8"></a>
+			<a href="assets/certificate_(2).jpg"  class="cert-item"><img src="assets/certificate_(2).jpg"  alt="Certificate 2"></a>
+			<a href="assets/certificate_(3).jpg"  class="cert-item"><img src="assets/certificate_(3).jpg"  alt="Certificate 3"></a>
+			<a href="assets/certificate_(5).jpg"  class="cert-item"><img src="assets/certificate_(5).jpg"  alt="Certificate 5"></a>
+			<a href="assets/certificate_(6).jpg"  class="cert-item"><img src="assets/certificate_(6).jpg"  alt="Certificate 6"></a>
+			<a href="assets/certificate_(10).jpg" class="cert-item"><img src="assets/certificate_(10).jpg" alt="Certificate 10"></a>
+			<a href="assets/certificate_(11).jpg" class="cert-item"><img src="assets/certificate_(11).jpg" alt="Certificate 11"></a>
+			<a href="assets/shs_diploma.jpg"      class="cert-item"><img src="assets/shs_diploma.jpg"      alt="SHS Diploma"></a>
+			<a href="assets/jhsDiploma.jpg"        class="cert-item"><img src="assets/jhsDiploma.jpg"        alt="JHS Diploma"></a>
+			<a href="assets/elemDiploma.jpg"       class="cert-item"><img src="assets/elemDiploma.jpg"       alt="Elem Diploma"></a>
+			<a href="assets/certificate_(9).jpg"  class="cert-item"><img src="assets/certificate_(9).jpg"  alt="Certificate 9"></a>
+		</div>
+	</section>
+
+	<!-- ── WORKS ── -->
+	<section class="page-section" id="works">
+		<div class="section-header">
+			<h1>My Works</h1>
+		</div>
+		<div class="works-grid">
+			<div class="work-item work-video">
+				<video controls>
+					<source src="vid1.mp4" type="video/mp4">
+				</video>
+			</div>
+			<a href="assets/Mathemon1.png" class="work-item"><img src="assets/Mathemon1.png" alt="Mathemon 1"></a>
+			<a href="assets/Mathemon2.png" class="work-item"><img src="assets/Mathemon2.png" alt="Mathemon 2"></a>
+			<a href="assets/Mathemon3.png" class="work-item"><img src="assets/Mathemon3.png" alt="Mathemon 3"></a>
+		</div>
+	</section>
+
+	<!-- ── FOOTER ── -->
+	<footer>
+		<h3 class="footer-title">Contact Me</h3>
+		<div class="footer-icons">
+			<a href="https://x.com/J3NO2"                              aria-label="Twitter"><img  class="icon" src="assets/Twitter.png"  alt="Twitter"></a>
+			<a href="https://www.facebook.com/jephthy.dojino/"         aria-label="Facebook"><img class="icon" src="assets/FaceBook.png" alt="Facebook"></a>
+			<a href="https://discord.com/users/316414959791636480"      aria-label="Discord"><img  class="icon" src="assets/Discord.png"  alt="Discord"></a>
+			<a href="mailto:jephthydojino@gmail.com"                   aria-label="Email"><img    class="icon" src="assets/Email.png"    alt="Email"></a>
+		</div>
+		<p class="footer-copy">&copy; 2025 / Jephthy Dojino</p>
+	</footer>
+
+</div><!-- #page -->
+
+<script>
+function makeSVGEl(tag, attrs) {
+	const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+	for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+	return el;
+}
+
+function buildOuterRing(svg) {
+	const cx = 180, cy = 180, r = 158;
+	svg.appendChild(makeSVGEl('circle', { cx, cy, r, fill: 'none', stroke: '#DAA520', 'stroke-width': '1.4', opacity: '0.65' }));
+	for (let i = 0; i < 60; i++) {
+		const angle = (i / 60) * 2 * Math.PI;
+		const x = cx + r * Math.sin(angle);
+		const y = cy - r * Math.cos(angle);
+		if (i % 5 === 0) {
+			const s = 5.5;
+			const pts = [
+				[x, y-s*1.7],[x+s*.45,y-s*.45],[x+s*1.7,y],[x+s*.45,y+s*.45],
+				[x,y+s*1.7],[x-s*.45,y+s*.45],[x-s*1.7,y],[x-s*.45,y-s*.45]
+			].map(p=>p.join(',')).join(' ');
+			svg.appendChild(makeSVGEl('polygon', { points: pts, fill: '#DAA520', opacity: '0.9' }));
+		} else if (i % 2 === 0) {
+			const ir = r - 9;
+			svg.appendChild(makeSVGEl('line', {
+				x1: x, y1: y,
+				x2: cx + ir * Math.sin(angle),
+				y2: cy - ir * Math.cos(angle),
+				stroke: '#DAA520', 'stroke-width': '0.9', opacity: '0.45'
+			}));
 		}
 	}
+}
 
-	function buildInnerRing(svg) {
-		const cx = 180, cy = 180, r = 125;
-		svg.appendChild(makeSVGEl('circle', { cx, cy, r, fill: 'none', stroke: '#DAA520', 'stroke-width': '0.7', opacity: '0.3' }));
-		for (let i = 0; i < 16; i++) {
-			const angle = (i / 16) * 2 * Math.PI;
-			const x = cx + r * Math.sin(angle);
-			const y = cy - r * Math.cos(angle);
-			if (i % 4 === 0) {
-				const s = 6;
-				const pts = [[x, y - s], [x + s * 0.5, y], [x, y + s], [x - s * 0.5, y]].map(point => point.join(',')).join(' ');
-				svg.appendChild(makeSVGEl('polygon', { points: pts, fill: 'none', stroke: '#DAA520', 'stroke-width': '1.1', opacity: '0.7' }));
-			} else {
-				svg.appendChild(makeSVGEl('circle', { cx: x, cy: y, r: '1.5', fill: '#DAA520', opacity: '0.4' }));
-			}
+function buildInnerRing(svg) {
+	const cx = 180, cy = 180, r = 125;
+	svg.appendChild(makeSVGEl('circle', { cx, cy, r, fill: 'none', stroke: '#DAA520', 'stroke-width': '0.7', opacity: '0.3' }));
+	for (let i = 0; i < 16; i++) {
+		const angle = (i / 16) * 2 * Math.PI;
+		const x = cx + r * Math.sin(angle);
+		const y = cy - r * Math.cos(angle);
+		if (i % 4 === 0) {
+			const s = 6;
+			const pts = [[x,y-s],[x+s*.5,y],[x,y+s],[x-s*.5,y]].map(p=>p.join(',')).join(' ');
+			svg.appendChild(makeSVGEl('polygon', { points: pts, fill: 'none', stroke: '#DAA520', 'stroke-width': '1.1', opacity: '0.7' }));
+		} else {
+			svg.appendChild(makeSVGEl('circle', { cx: x, cy: y, r: '1.5', fill: '#DAA520', opacity: '0.4' }));
 		}
 	}
+}
 
-	buildOuterRing(document.getElementById('outerRing'));
-	buildInnerRing(document.getElementById('innerRing'));
+buildOuterRing(document.getElementById('outerRing'));
+buildInnerRing(document.getElementById('innerRing'));
 
-	let dotCount = 0;
-	const dotsEl = document.getElementById('dots');
-	const dotInterval = setInterval(() => {
-		dotCount = (dotCount + 1) % 4;
-		dotsEl.textContent = '.'.repeat(dotCount);
-	}, 400);
+let dotCount = 0;
+const dotsEl = document.getElementById('dots');
+const dotInterval = setInterval(() => {
+	dotCount = (dotCount + 1) % 4;
+	dotsEl.textContent = '.'.repeat(dotCount);
+}, 400);
 
-	window.addEventListener('load', () => {
+window.addEventListener('load', () => {
+	setTimeout(() => {
+		clearInterval(dotInterval);
+		document.getElementById('please-wait').classList.add('hide');
 		setTimeout(() => {
-			clearInterval(dotInterval);
-			document.getElementById('please-wait').classList.add('hide');
-
-			setTimeout(() => {
-				document.getElementById('loader').classList.add('slide-up');
-				document.getElementById('page').classList.add('visible');
-
-				const links = document.querySelectorAll('#mainNav a');
-				links.forEach((link, index) => {
-					setTimeout(() => link.classList.add('revealed'), 300 + index * 130);
-				});
-			}, 500);
-		}, 600);
-	});
-	</script>
-	</body>
+			document.getElementById('loader').classList.add('slide-up');
+			document.getElementById('page').classList.add('visible');
+			document.querySelectorAll('#mainNav a').forEach((a, i) => {
+				setTimeout(() => a.classList.add('revealed'), 300 + i * 130);
+			});
+		}, 500);
+	}, 600);
+});
+</script>
+</body>
 </html>
